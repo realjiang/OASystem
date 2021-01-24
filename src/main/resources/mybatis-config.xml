@@ -7,9 +7,29 @@
         <!--开启驼峰命名转换 form_id -> formId-->
         <setting name="mapUnderscoreToCamelCase" value="true"/>
     </settings>
-    <environments default="dev">
+    <environments default="druid">
         <!--开发环境配置-->
-        <environment id="dev">
+        <environment id="druid">
+            <!--事务管理器采用JDBC方式-->
+            <transactionManager type="JDBC"></transactionManager>
+            <!--利用Mybatis自带连接池管理连接
+            <dataSource type="POOLED">-->
+            <!--MyBatis与Druid的整合-->
+            <dataSource type="com.superj.oa.datasource.DruidDataSourceFactory">
+                <!--JDBC连接属性-->
+                <property name="driverClassName" value="org.mariadb.jdbc.Driver"/>
+<!--                <property name="driverClassName" value="com.mysql.cj.jdbc.Driver"/>-->
+<!--                <property name="url" value="jdbc:mysql://localhost:3306/OA? useSSL=false&amp;useUnicode=true&amp;characterEncoding=UTF-8&amp;serverTimezone=Asia/Shanghai&amp;allowPublicKeyRetrieval=true"/>-->
+                <property name="url" value="jdbc:mysql://localhost:3306/OA"/>
+                <property name="username" value="jiang"/>
+                <property name="password" value="123456"/>
+                <!--连接池初始连接数-->
+                <property name="initialSize" value="10"/>
+                <!--连接池最大连接数-->
+                <property name="maxActive" value="20"/>
+            </dataSource>
+        </environment>
+        <environment id="pooled">
             <!--事务管理器采用JDBC方式-->
             <transactionManager type="JDBC"></transactionManager>
             <!--利用Mybatis自带连接池管理连接-->
@@ -23,6 +43,6 @@
         </environment>
     </environments>
     <mappers>
-        <mapper resource="mappers/test.xml"/>
+        <mapper resource="mappers/mytest.xml"/>
     </mappers>
 </configuration>
