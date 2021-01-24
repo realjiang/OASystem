@@ -1,15 +1,21 @@
 package com.superj.oa.service;
 
 
+import com.superj.oa.dao.RbacDao;
 import com.superj.oa.dao.UserDao;
+import com.superj.oa.entity.Node;
 import com.superj.oa.entity.User;
 import com.superj.oa.service.exception.BussinessException;
+
+import java.util.List;
 
 /**
  * 用户服务
  */
 public class UserService {
     private UserDao userDao = new UserDao();//这里不实例化会报空指针异常
+    private RbacDao rbacDao = new RbacDao();
+
     /**
      * 根据前台输入进行登录校验
      * @param username 前台输入的用户名
@@ -30,5 +36,10 @@ public class UserService {
             throw new BussinessException("L002", "密码错误");
         }
         return user;
+    }
+
+    public List<Node> selectNodeByUserId(Long userId){
+        List<Node> nodeList = rbacDao.selectNodeByUserId(userId);
+        return nodeList;
     }
 }

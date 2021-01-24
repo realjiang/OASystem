@@ -1,5 +1,6 @@
 package com.superj.oa.service;
 
+import com.superj.oa.entity.Node;
 import com.superj.oa.entity.User;
 import junit.framework.TestCase;
 import org.junit.Test;
@@ -24,9 +25,9 @@ public class UserServiceTest extends TestCase {
         System.out.println(user);
     }
 
-//    @Test
-//    public void selectNodeByUserId(){
-//        List<Node> nodeList = userService.selectNodeByUserId(2l);
-//        System.out.println(nodeList);
-//    }
+    @Test
+    public void testSelectNodeByUserId(){
+        List<Node> nodeList = userService.selectNodeByUserId(2l);
+        System.out.println(nodeList);
+    }
 }
