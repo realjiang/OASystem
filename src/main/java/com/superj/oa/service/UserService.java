@@ -6,6 +6,7 @@ import com.superj.oa.dao.UserDao;
 import com.superj.oa.entity.Node;
 import com.superj.oa.entity.User;
 import com.superj.oa.service.exception.BussinessException;
+import com.superj.oa.utils.MD5Utils;
 
 import java.util.List;
 
@@ -31,7 +32,8 @@ public class UserService {
             throw new BussinessException("L001", "用户名不存在");
         }
         //对前台输入的密码加盐混淆后生成MD5,与保存在数据库中的MD5密码进行比对
-        if(!password.equals(user.getPassword())){
+        String md5 = MD5Utils.md5Digest(password, user.getSalt());
+        if(!md5.equals(user.getPassword())){
             //密码错误的情况
             throw new BussinessException("L002", "密码错误");
         }
