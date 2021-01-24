@@ -3,7 +3,7 @@ package com.superj.oa.utils;
 import junit.framework.TestCase;
 import org.junit.Test;
 
-public class MybatisUtilsTestor extends TestCase {
+public class MybatisUtilsTest extends TestCase {
 
     @Test
     public void testcase1(){

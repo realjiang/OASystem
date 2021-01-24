@@ -44,5 +44,6 @@
     </environments>
     <mappers>
         <mapper resource="mappers/mytest.xml"/>
+        <mapper resource="mappers/user.xml"/>
     </mappers>
 </configuration>
