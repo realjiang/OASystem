@@ -32,10 +32,11 @@ public class LoginServlet extends HttpServlet {
             //调用业务逻辑
             User user = userService.checkLogin(username, password);
             HttpSession session = request.getSession();
-            //向session存入登录用户信息,属性名:login_user
+            //向session存入登录用户信息,属性名:login_user。在indexServet中可以提取用户信息
             session.setAttribute("login_user" , user);
             result.put("code", "0");
             result.put("message", "success");
+            //登录成功后跳转
             result.put("redirect_url", "/index");
         }catch (BussinessException ex){
             logger.error(ex.getMessage() , ex);
