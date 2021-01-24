@@ -25,7 +25,7 @@
                     ${current_employee.name}[${current_department.departmentName}-${current_employee.title}]
                 </a>
             </li>
-            <!--注销按钮-->
+            <!--注销按钮，href是logoutServlet中的 urlPatterns = "/logout"-->
             <li class="layui-nav-item"><a href="/logout">注销</a></li>
         </ul>
     </div>
