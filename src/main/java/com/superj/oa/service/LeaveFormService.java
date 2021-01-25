@@ -198,6 +198,7 @@ public class LeaveFormService {
                 }else if (result.equals("refused")){
                     strResult = "驳回";
                 }
+                //审批后给请假员工通知
                 String noticeContent = String.format("您的请假申请[%s-%s]%s%s已%s,审批意见:%s,审批流程已结束",
                         sdf.format(form.getStartTime()) , sdf.format(form.getEndTime()),
                         operator.getTitle(),operator.getName(),
