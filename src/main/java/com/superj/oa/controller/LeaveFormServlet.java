@@ -96,7 +96,7 @@ public class LeaveFormServlet extends HttpServlet {
         Map result = new HashMap();
         result.put("code", "0");
         result.put("msg", "");
-        result.put("count", formList.size());
+        result.put("count", formList.size());//分页时代表未分页前的总条数
         result.put("data", formList);
         String json = JSON.toJSONString(result);
         response.getWriter().println(json);

@@ -43,7 +43,7 @@ public class LeaveFormDaoTest extends TestCase {
     public void testSelectByParams(){
         MybatisUtils.executeQuery(sqlSession -> {
             LeaveFormDao dao = sqlSession.getMapper(LeaveFormDao.class);
-            List<Map> list = dao.selectByParams("process", 2l);
+            List<Map> list = dao.selectByParams("process", 1l);
             System.out.println(list);
             return list;
         });
